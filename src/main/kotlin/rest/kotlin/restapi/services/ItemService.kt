@@ -14,12 +14,12 @@ class ItemService(
         return this.itemRepository.findAll()
     }
 
-    fun findById(id: ObjectId): Item {
-        return itemRepository.findById(id)
+    fun findById(id: String): Item {
+        return itemRepository.findById(ObjectId(id))
             .orElseThrow { NotFoundException() }
     }
 
     fun create(item: Item): Item {
-        return this.itemRepository.save(item)
+        return this.itemRepository.insert(item)
     }
 }

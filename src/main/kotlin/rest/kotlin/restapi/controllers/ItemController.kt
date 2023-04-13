@@ -1,6 +1,5 @@
 package rest.kotlin.restapi.controllers
 
-import org.bson.types.ObjectId
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -21,7 +20,7 @@ class ItemController(
     }
 
     @GetMapping("{id}")
-    fun findById(@PathVariable("id") id: ObjectId): Item {
+    fun findById(@PathVariable("id") id: String): Item {
         return this.itemService.findById(id)
     }
 
